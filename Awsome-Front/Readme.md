@@ -1,24 +1,28 @@
-# 在GitHub上收集的最全的前端资源汇总（包括前端学习、前端开发资源、前端求职面试等）
+# 在 GitHub 上收集的最全的前端资源汇总（包括前端学习、前端开发资源、前端求职面试等）
 
 ![](https://ws1.sinaimg.cn/mw690/66101050ly1fdlmi7jd3zj21jk111wk9)
 
-> 个人结合github上各位大神分享的资源进行了简单的汇总整理，每一个条目下面都有丰富的资料，是前端学习、工作的好帮手。
+> 个人结合 github 上各位大神分享的资源进行了简单的汇总整理，每一个条目下面都有丰富的资料，是前端学习、工作的好帮手。
 
 **说明:** 整理有不当之处, 欢迎 [pr](https://github.com/helloqingfeng/Awsome-Front-End-learning-resource/pulls) 或提出 [issue](https://github.com/helloqingfeng/Awsome-Front-End-learning-resource/issues)。
 
 ## 更新日志：
+
 **20170313：**
-- 增加JavaScript 资源大全中文版（作者：伯乐在线）
+
+* 增加 JavaScript 资源大全中文版（作者：伯乐在线）
 
 **20161115：**
-- 增加JavaScript 全栈工程师培训教程（作者：阮一峰）
+
+* 增加 JavaScript 全栈工程师培训教程（作者：阮一峰）
 
 **20161013：**
-- 增加 Google面试宝典（作者：John Washam）
+
+* 增加 Google 面试宝典（作者：John Washam）
 
 **20160916：**
-- 增加大前端工具集（作者：聂微东）
 
+* 增加大前端工具集（作者：聂微东）
 
 **关于我：** 微博: [@青丰与名月](http://weibo.com/helloqingfeng)
 
@@ -26,11 +30,9 @@
 
 ## [结合个人经历总结的前端入门方法](https://github.com/helloqingfeng/Awsome-Front-End-learning-resource/tree/master/01-FE-learning-master)
 
-
 作者：qiu https://github.com/qiu-deqing
 
 源地址：https://github.com/qiu-deqing/FE-learning
-
 
 ## [前端学习路径](https://github.com/helloqingfeng/Awsome-Front-End-learning-resource/tree/master/26-front-end-learning-path)
 
@@ -39,6 +41,7 @@
 源地址：https://zhuanlan.zhihu.com/p/21935921
 
 ## [JavaScript 全栈工程师培训教程](https://github.com/helloqingfeng/Awsome-Front-End-learning-resource/tree/master/30-jstraining)
+
 作者： 阮一峰 https://github.com/ruanyf
 
 源地址：https://github.com/ruanyf/jstraining
@@ -53,9 +56,10 @@
 
 英文原版地址：https://www.frontendhandbook.com/
 
-资源下载: 
-- [PDF版](http://pan.baidu.com/s/1c0frhIS)
-- [MOBI版](https://www.gitbook.com/book/dwqs/frontenddevhandbook/details)
+资源下载:
+
+* [PDF 版](http://pan.baidu.com/s/1c0frhIS)
+* [MOBI 版](https://www.gitbook.com/book/dwqs/frontenddevhandbook/details)
 
 ## [前端开发笔记本](https://github.com/helloqingfeng/Awsome-Front-End-learning-resource/tree/master/03-FEND_Note-master)
 
@@ -65,7 +69,7 @@
 
 阅读地址：http://li-xinyang.gitbooks.io/frontend-notebook/
 
-资源下载: [PDF版](https://www.gitbook.com/download/pdf/book/li-xinyang/frontend-notebook)
+资源下载: [PDF 版](https://www.gitbook.com/download/pdf/book/li-xinyang/frontend-notebook)
 
 ## [最全的资源教程——前端涉及的所有知识体系](https://github.com/helloqingfeng/Awsome-Front-End-learning-resource/tree/master/04-Front-end-tutorial-master)
 
@@ -74,13 +78,14 @@
 源地址：https://github.com/nicejade/Front-end-tutorial
 
 ## [大前端工具集——程序猿的百宝箱](https://github.com/helloqingfeng/Awsome-Front-End-learning-resource/tree/master/28-fetool-master) （0916）
+
 作者：聂微东 https://github.com/nieweidong
 
 源地址：https://github.com/nieweidong/fetool
 
 阅读地址：http://www.fefork.com/fetool
 
-## [100+ 超全的web开发工具和资源](https://github.com/helloqingfeng/Awsome-Front-End-learning-resource/tree/master/24-100+Web-Development-Tools-and-Resources)
+## [100+ 超全的 web 开发工具和资源](https://github.com/helloqingfeng/Awsome-Front-End-learning-resource/tree/master/24-100+Web-Development-Tools-and-Resources)
 
 译者：稀土区 https://xituqu.com/
 
@@ -100,12 +105,11 @@
 
 阅读地址：http://html5ify.com/fks/
 
-## [Web前端开发技术栈](https://github.com/helloqingfeng/Awsome-Front-End-learning-resource/tree/master/06-WebFrontEndStack-master)
+## [Web 前端开发技术栈](https://github.com/helloqingfeng/Awsome-Front-End-learning-resource/tree/master/06-WebFrontEndStack-master)
 
 作者：Wilson Chen https://github.com/unruledboy
 
 源地址：https://github.com/unruledboy/WebFrontEndStack
-
 
 ## [前端开发所使用语言的主流学习资源汇集指南](https://github.com/helloqingfeng/Awsome-Front-End-learning-resource/tree/master/07-Front-End-Develop-Guide-master)
 
@@ -113,12 +117,11 @@
 
 源地址：https://github.com/icepy/Front-End-Develop-Guide
 
-## [GitHub上值得关注的前端项目](https://github.com/helloqingfeng/Awsome-Front-End-learning-resource/tree/master/08-github-FE-project-master)
+## [GitHub 上值得关注的前端项目](https://github.com/helloqingfeng/Awsome-Front-End-learning-resource/tree/master/08-github-FE-project-master)
 
-作者： trigkit4    https://github.com/hawx1993
+作者： trigkit4 https://github.com/hawx1993
 
 源地址：https://github.com/hawx1993/github-FE-project
-
 
 ## [前端开发相关的优秀网站、博客、以及活跃开发者](https://github.com/helloqingfeng/Awsome-Front-End-learning-resource/tree/master/09-front-end-collect-master)
 
@@ -138,7 +141,7 @@
 
 源地址：https://mdluo.github.io/blog/about-reading/
 
-## [Github个人收集的优秀JavaScript项目](https://github.com/helloqingfeng/Awsome-Front-End-learning-resource/tree/master/12-JavaScript-project)
+## [Github 个人收集的优秀 JavaScript 项目](https://github.com/helloqingfeng/Awsome-Front-End-learning-resource/tree/master/12-JavaScript-project)
 
 作者：Daiyichen https://github.com/Daiyichen
 
@@ -177,18 +180,18 @@
 源地址：https://github.com/IonicChina/Mobile-front-end-tutorial
 
 ## [前端开发规范手册](https://github.com/helloqingfeng/Awsome-Front-End-learning-resource/tree/master/27-front-end-style-guide)
+
 作者：阿树 https://github.com/Aaaaaashu
 
 源地址：https://github.com/Aaaaaashu/Guide
 
 阅读地址：http://zhibimo.com/read/Ashu/front-end-style-guide/
 
-##  [Web前端开发规范文档](https://github.com/helloqingfeng/Awsome-Front-End-learning-resource/tree/master/25-web-develop-standard-master)
+## [Web 前端开发规范文档](https://github.com/helloqingfeng/Awsome-Front-End-learning-resource/tree/master/25-web-develop-standard-master)
 
 作者：kc https://github.com/kangcafe
 
 源地址：https://github.com/kangcafe/web_develop_standard
-
 
 ## [适用于小团队的前端规范](https://github.com/helloqingfeng/Awsome-Front-End-learning-resource/tree/master/18-fun-front-end-tutorials-master)
 
@@ -218,10 +221,9 @@
 
 ## [前端面试问题集锦](https://github.com/helloqingfeng/Awsome-Front-End-learning-resource/tree/master/21-Front-end-Interview-questions)
 
-作者： trigkit4    https://github.com/hawx1993
+作者： trigkit4 https://github.com/hawx1993
 
 源地址：https://github.com/hawx1993/Front-end-Interview-questions
-
 
 ## [前端工作面试问题](https://github.com/helloqingfeng/Awsome-Front-End-learning-resource/tree/master/22-Front-end-Developer-Interview-Questions-master)
 
@@ -230,7 +232,6 @@
 中文版作者：Liu Chao https://github.com/lc-soft
 
 源地址：https://github.com/h5bp/Front-end-Developer-Interview-Questions
-
 
 ## [收集的前端面试题和答案](https://github.com/helloqingfeng/Awsome-Front-End-learning-resource/tree/master/23-FE-interview-master)
 
@@ -255,5 +256,3 @@
 **声明：** 版权归原作者所有，我只是搬运工。
 
 **Photo Credit：**[Negative Space](https://unsplash.com/photos/6g0KJWnBhxg)
-
-
