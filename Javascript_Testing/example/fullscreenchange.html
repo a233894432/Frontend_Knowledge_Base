@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html:-moz-full-screen {
+            background: red;
+        }
+
+        html:-webkit-full-screen {
+            background: red;
+        }
+
+        html:fullscreen {
+            background: red;
+        }
+    </style>
+    <!-- <script src="//upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.3.min.js"></script> -->
+</head>
+
+<body>
+    sdfsdf
+    <script>
+        var doc = document;
+        var win = window;
+
+        doc.addEventListener("keydown", function (e) {
+            // console.log(e);
+            var e = event || window.event || arguments.callee.caller.arguments[0];
+            //捕捉F11键盘动作
+            if (e && e.keyCode == 122) {
+                //阻止F11默认动作
+                e.preventDefault();
+                var el = document.documentElement;
+                //定义不同浏览器的全屏API
+                var rfs = el.requestFullScreen || el.webkitRequestFullScreen || el.mozRequestFullScreen || el.msRequestFullScreen;
+                //执行全屏
+                if (typeof rfs != "undefined" && rfs) {
+                    rfs.call(el);
+                } else if (typeof window.ActiveXObject != "undefined") {
+                    var wscript = new ActiveXObject("WScript.Shell");
+                    if (wscript != null) {
+                        wscript.SendKeys("{F11}");
+                    }
+                }
+                //监听不同浏览器的全屏事件，并件执行相应的代码
+                document.addEventListener("webkitfullscreenchange", function () {//
+                    if (document.webkitIsFullScreen) {
+                        //全屏后要执行的代码
+                        console.log("webkitfullscreenchange enter");
+                    } else {
+                        //退出全屏后执行的代码
+                        console.log("webkitfullscreenchange out");
+                    }
+                }, false);
+
+            }
+        });
+
+
+
+        // function Resize() {
+        //     console.log("Resize");
+
+        // }
+
+        // win.onresize = Resize
+
+
+        // 节流防卡顿
+        (function () {
+            var throttle = function (type, name, obj) {
+                obj = obj || window;
+                var running = false;
+                var func = function () {
+                    if (running) { return; }
+                    running = true;
+                    requestAnimationFrame(function () {
+                        obj.dispatchEvent(new CustomEvent(name));
+                        running = false;
+                    });
+                };
+                obj.addEventListener(type, func);
+            };
+
+            /* init - you can init any event */
+            throttle("resize", "optimizedResize");
+        })();
+
+        // handle event
+        window.addEventListener("optimizedResize", function () {
+            console.log("Resource conscious resize callback!");
+        });
+
+
+
+        // $(document).on('keydown', function (e) {
+        //     var e = event || window.event || arguments.callee.caller.arguments[0];
+        //     if (e && e.keyCode == 122) {//捕捉F11键盘动作
+        //         e.preventDefault();  //阻止F11默认动作
+        //         var el = document.documentElement;
+        //         var rfs = el.requestFullScreen || el.webkitRequestFullScreen || el.mozRequestFullScreen || el.msRequestFullScreen;//定义不同浏览器的全屏API
+        //         //执行全屏
+        //         if (typeof rfs != "undefined" && rfs) {
+        //             rfs.call(el);
+        //         } else if (typeof window.ActiveXObject != "undefined") {
+        //             var wscript = new ActiveXObject("WScript.Shell");
+        //             if (wscript != null) {
+        //                 wscript.SendKeys("{F11}");
+        //             }
+        //         }
+        //         //监听不同浏览器的全屏事件，并件执行相应的代码
+        //         document.addEventListener("webkitfullscreenchange", function () {//
+        //             if (document.webkitIsFullScreen) {
+        //                 //全屏后要执行的代码
+        //                 console.log("webkitfullscreenchange enter");
+        //             } else {
+        //                 //退出全屏后执行的代码
+        //                 console.log("webkitfullscreenchange out");
+        //             }
+        //         }, false);
+
+        //         document.addEventListener("fullscreenchange", function () {
+        //             if (document.fullscreen) {
+        //                 //全屏后执行的代码
+        //                 console.log("fullscreenchange enter");
+        //             } else {
+        //                 //退出全屏后要执行的代码
+        //                 console.log("fullscreenchange out");
+        //             }
+        //         }, false);
+
+        //         document.addEventListener("mozfullscreenchange", function () {
+        //             if (document.mozFullScreen) {
+        //                 //全屏后要执行的代码
+        //                 console.log("mozfullscreenchange enter");
+        //             } else {
+        //                 //退出全屏后要执行的代码
+        //                 console.log("mozfullscreenchange out");
+        //             }
+        //         }, false);
+
+        //         document.addEventListener("msfullscreenchange", function () {
+        //             if (document.msFullscreenElement) {
+        //                 //全屏后要执行的代码
+        //                 console.log("msfullscreenchange enter");
+        //             } else {
+        //                 //退出全屏后要执行的代码
+        //                 console.log("msfullscreenchange out");
+        //             }
+        //         }, false)
+        //     }
+        // });
+    </script>
+</body>
+
+</html>
