@@ -6,50 +6,45 @@ These snippets, while useful and interesting, didn't quite make it into the repo
 
 ## Table of Contents
 
-* [`binarySearch`](#binarysearch)
+* [`JSONToDate`](#jsontodate)
 * [`speechSynthesis`](#speechsynthesis)
+* [`binarySearch`](#binarysearch)
+* [`cleanObj`](#cleanobj)
+* [`collatz`](#collatz)
 * [`countVowels`](#countvowels)
 * [`factors`](#factors)
 * [`fibonacciCountUntilNum`](#fibonaccicountuntilnum)
 * [`fibonacciUntilNum`](#fibonacciuntilnum)
-* [`howManyTimes`](#howmanytimes)
 * [`httpDelete`](#httpdelete)
-* [`collatz`](#collatz)
+* [`httpPut`](#httpput)
 * [`isArmstrongNumber`](#isarmstrongnumber)
-* [`JSONToDate`](#jsontodate)
+* [`isSimilar`](#issimilar)
+* [`levenshteinDistance`](#levenshteindistance)
 * [`quickSort`](#quicksort)
 * [`removeVowels`](#removevowels)
 * [`solveRPN`](#solverpn)
-* [`httpPut`](#httpput)
+* [`howManyTimes`](#howmanytimes)
 
 ---
 
-### binarySearch
+### JSONToDate
 
-Use recursion. Similar to `Array.indexOf()` that finds the index of a value within an array. 
-The difference being this operation only works with sorted arrays which offers a major performance boost due to it's logarithmic nature when compared to a linear search or `Array.indexOf()`.
+Converts a JSON object to a date.
 
-Search a sorted array by repeatedly dividing the search interval in half. 
-Begin with an interval covering the whole array. 
-If the value of the search is less than the item in the middle of the interval, recurse into the lower half. Otherwise recurse into the upper half. 
-Repeatedly recurse until the value is found which is the mid or you've recursed to a point that is greater than the length which means the value doesn't exist and return `-1`.
+Use `Date()`, to convert dates in JSON format to readable format (`dd/mm/yyyy`).
 
 ```js
-const binarySearch = (arr, val, start = 0, end = arr.length - 1) => {
-  if (start > end) return -1;
-  const mid = Math.floor((start + end) / 2);
-  if (arr[mid] > val) return binarySearch(arr, val, start, mid - 1);
-  if (arr[mid] < val) return binarySearch(arr, val, mid + 1, end);
-  return mid;
-}
-``` 
+const JSONToDate = arr => {
+  const dt = new Date(parseInt(arr.toString().substr(6)));
+  return `${dt.getDate()}/${dt.getMonth() + 1}/${dt.getFullYear()}`;
+};
+```
 
 <details>
 <summary>Examples</summary>
 
 ```js
-binarySearch([1, 4, 6, 7, 12, 13, 15, 18, 19, 20, 22, 24], 6); // 2
-binarySearch([1, 4, 6, 7, 12, 13, 15, 18, 19, 20, 22, 24], 21); // -1
+JSONToDate(/Date(1489525200000)/); // "14/3/2017"
 ```
 
 </details>
@@ -79,6 +74,94 @@ const speechSynthesis = message => {
 
 ```js
 speechSynthesis('Hello, World'); // // plays the message
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
+### binarySearch
+
+Use recursion. Similar to `Array.indexOf()` that finds the index of a value within an array.
+The difference being this operation only works with sorted arrays which offers a major performance boost due to it's logarithmic nature when compared to a linear search or `Array.indexOf()`.
+
+Search a sorted array by repeatedly dividing the search interval in half.
+Begin with an interval covering the whole array.
+If the value of the search is less than the item in the middle of the interval, recurse into the lower half. Otherwise recurse into the upper half.
+Repeatedly recurse until the value is found which is the mid or you've recursed to a point that is greater than the length which means the value doesn't exist and return `-1`.
+
+```js
+const binarySearch = (arr, val, start = 0, end = arr.length - 1) => {
+  if (start > end) return -1;
+  const mid = Math.floor((start + end) / 2);
+  if (arr[mid] > val) return binarySearch(arr, val, start, mid - 1);
+  if (arr[mid] < val) return binarySearch(arr, val, mid + 1, end);
+  return mid;
+};
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+binarySearch([1, 4, 6, 7, 12, 13, 15, 18, 19, 20, 22, 24], 6); // 2
+binarySearch([1, 4, 6, 7, 12, 13, 15, 18, 19, 20, 22, 24], 21); // -1
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
+### cleanObj
+
+Removes any properties except the ones specified from a JSON object.
+
+Use `Object.keys()` method to loop over given JSON object and deleting keys that are not included in given array.
+If you pass a special key,`childIndicator`, it will search deeply apply the function to inner objects, too.
+
+```js
+const cleanObj = (obj, keysToKeep = [], childIndicator) => {
+  Object.keys(obj).forEach(key => {
+    if (key === childIndicator) {
+      cleanObj(obj[key], keysToKeep, childIndicator);
+    } else if (!keysToKeep.includes(key)) {
+      delete obj[key];
+    }
+  });
+  return obj;
+};
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+const testObj = { a: 1, b: 2, children: { a: 1, b: 2 } };
+cleanObj(testObj, ['a'], 'children'); // { a: 1, children : { a: 1}}
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
+### collatz
+
+Applies the Collatz algorithm.
+
+If `n` is even, return `n/2`. Otherwise, return `3n+1`.
+
+```js
+const collatz = n => (n % 2 === 0 ? n / 2 : 3 * n + 1);
+```
+
+<details>
+<summary>Examples</summary>
+
+```js
+collatz(8); // 4
 ```
 
 </details>
@@ -213,44 +296,6 @@ fibonacciUntilNum(10); // [ 0, 1, 1, 2, 3, 5, 8 ]
 <br>[⬆ Back to top](#table-of-contents)
 
 
-### howManyTimes
-
-Returns the number of times `num` can be divided by `divisor` (integer or fractional) without getting a fractional answer.
-Works for both negative and positive integers.
-
-If `divisor` is `-1` or `1` return `Infinity`.
-If `divisor` is `-0` or `0` return `0`.
-Otherwise, keep dividing `num` with `divisor` and incrementing `i`, while the result is an integer.
-Return the number of times the loop was executed, `i`.
-
-```js
-const howManyTimes = (num, divisor) => {
-  if (divisor === 1 || divisor === -1) return Infinity;
-  if (divisor === 0) return 0;
-  let i = 0;
-  while (Number.isInteger(num / divisor)) {
-    i++;
-    num = num / divisor;
-  }
-  return i;
-};
-```
-
-<details>
-<summary>Examples</summary>
-
-```js
-howManyTimes(100, 2); // 2
-howManyTimes(100, 2.5); // 2
-howManyTimes(100, 0); // 0
-howManyTimes(100, -1); // Infinity
-```
-
-</details>
-
-<br>[⬆ Back to top](#table-of-contents)
-
-
 ### httpDelete
 
 Makes a `DELETE` request to the passed URL.
@@ -284,21 +329,36 @@ httpDelete('https://website.com/users/123', request => {
 <br>[⬆ Back to top](#table-of-contents)
 
 
-### collatz
+### httpPut
 
-Applies the Collatz algorithm.
+Makes a `PUT` request to the passed URL.
 
-If `n` is even, return `n/2`. Otherwise, return `3n+1`.
+Use `XMLHttpRequest` web api to make a `put` request to the given `url`.
+Set the value of an `HTTP` request header with `setRequestHeader` method.
+Handle the `onload` event, by running the provided `callback` function.
+Handle the `onerror` event, by running the provided `err` function.
+Omit the last argument, `err` to log the request to the console's error stream by default.
 
 ```js
-const collatz = n => (n % 2 == 0 ? n / 2 : 3 * n + 1);
+const httpPut = (url, data, callback, err = console.error) => {
+    const request = new XMLHttpRequest();
+    request.open("PUT", url, true);
+    request.setRequestHeader('Content-type','application/json; charset=utf-8');
+    request.onload = () => callback(request);
+    request.onerror = () => err(request);
+    request.send(data);
+};
 ```
 
 <details>
 <summary>Examples</summary>
 
 ```js
-collatz(8); // 4
+const password = "fooBaz";
+const data = JSON.stringify(password);
+httpPut('https://website.com/users/123', data, request => {
+  console.log(request.responseText);
+}); // 'Updates a user's password in database'
 ```
 
 </details>
@@ -332,16 +392,58 @@ isArmstrongNumber(56); // false
 <br>[⬆ Back to top](#table-of-contents)
 
 
-### JSONToDate
+### isSimilar
 
-Converts a JSON object to a date.
+Determines if the `pattern` matches with `str`.
 
-Use `Date()`, to convert dates in JSON format to readable format (`dd/mm/yyyy`).
+Use `String.toLowerCase()` to convert both strings to lowercase, then loop through `str` and determine if it contains all characters of `pattern` and in the correct order.
+Adapted from [here](https://github.com/forrestthewoods/lib_fts/blob/80f3f8c52db53428247e741b9efe2cde9667050c/code/fts_fuzzy_match.js#L18).
 
-```js
-const JSONToDate = arr => {
-  const dt = new Date(parseInt(arr.toString().substr(6)));
-  return `${dt.getDate()}/${dt.getMonth() + 1}/${dt.getFullYear()}`;
+``` js
+const isSimilar = (pattern, str) =>
+	[...str].reduce(
+		(matchIndex, char) => char.toLowerCase() === (pattern[matchIndex]  || '').toLowerCase() ? matchIndex + 1 : matchIndex, 0
+	) === pattern.length ? true : false;
+```
+
+
+``` js
+isSimilar('rt','Rohit'); // true
+isSimilar('tr','Rohit'); // false
+```<details>
+<summary>Examples</summary>
+
+```
+
+</details>
+
+<br>[⬆ Back to top](#table-of-contents)
+
+
+### levenshteinDistance
+
+Calculates the [Levenshtein distance](https://en.wikipedia.org/wiki/Levenshtein_distance) between two strings.
+
+Calculates the number of changes (substitutions, deletions or additions) required to convert `string1` to `string2`. 
+Can also be used to compare two strings as shown in the second example.
+
+``` js
+const levenshteinDistance  = (string1, string2) => {
+    if(string1.length === 0) return string2.length;
+    if(string2.length === 0) return string1.length;
+    let matrix = Array(string2.length + 1).fill(0).map((x,i) => [i]);
+    matrix[0] = Array(string1.length + 1).fill(0).map((x,i) => i);
+    for(let i = 1; i <= string2.length; i++){
+        for(let j = 1; j<=string1.length; j++){
+            if(string2[i-1] === string1[j-1]){
+                matrix[i][j] = matrix[i-1][j-1];
+            }
+            else{
+                matrix[i][j] = Math.min(matrix[i-1][j-1]+1, matrix[i][j-1]+1, matrix[i-1][j]+1);
+            }
+        }
+    }
+    return matrix[string2.length][string1.length];
 };
 ```
 
@@ -349,7 +451,9 @@ const JSONToDate = arr => {
 <summary>Examples</summary>
 
 ```js
-JSONToDate(/Date(1489525200000)/); // "14/3/2017"
+levenshteinDistance('30-seconds-of-code','30-seconds-of-python-code'); // 7
+const compareStrings = (string1,string2) => (100 - levenshteinDistance(string1,string2) / Math.max(string1.length,string2.length));
+compareStrings('30-seconds-of-code', '30-seconds-of-python-code'); // 99.72 (%)
 ```
 
 </details>
@@ -467,24 +571,26 @@ solveRPN('2 3 ^'); // 8
 <br>[⬆ Back to top](#table-of-contents)
 
 
-### httpPut
+### howManyTimes
 
-Makes a `PUT` request to the passed URL.
+Returns the number of times `num` can be divided by `divisor` (integer or fractional) without getting a fractional answer.
+Works for both negative and positive integers.
 
-Use `XMLHttpRequest` web api to make a `put` request to the given `url`.
-Set the value of an `HTTP` request header with `setRequestHeader` method.
-Handle the `onload` event, by running the provided `callback` function.
-Handle the `onerror` event, by running the provided `err` function.
-Omit the last argument, `err` to log the request to the console's error stream by default.
+If `divisor` is `-1` or `1` return `Infinity`.
+If `divisor` is `-0` or `0` return `0`.
+Otherwise, keep dividing `num` with `divisor` and incrementing `i`, while the result is an integer.
+Return the number of times the loop was executed, `i`.
 
 ```js
-const httpPut = (url, data, callback, err = console.error) => {
-    const request = new XMLHttpRequest();
-    request.open("PUT", url, true);
-    request.setRequestHeader('Content-type','application/json; charset=utf-8');
-    request.onload = () => callback(request);
-    request.onerror = () => err(request);
-    request.send(data);
+const howManyTimes = (num, divisor) => {
+  if (divisor === 1 || divisor === -1) return Infinity;
+  if (divisor === 0) return 0;
+  let i = 0;
+  while (Number.isInteger(num / divisor)) {
+    i++;
+    num = num / divisor;
+  }
+  return i;
 };
 ```
 
@@ -492,11 +598,10 @@ const httpPut = (url, data, callback, err = console.error) => {
 <summary>Examples</summary>
 
 ```js
-const password = "fooBaz";
-const data = JSON.stringify(password);
-httpPut('https://website.com/users/123', data, request => {
-  console.log(request.responseText);
-}); // 'Updates a user's password in database'
+howManyTimes(100, 2); // 2
+howManyTimes(100, 2.5); // 2
+howManyTimes(100, 0); // 0
+howManyTimes(100, -1); // Infinity
 ```
 
 </details>
