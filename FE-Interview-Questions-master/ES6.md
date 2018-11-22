@@ -36,7 +36,7 @@ var promise = new Promise(function(resolve, reject) {
 ```
 
 - Promise 实例拥有 then 方法（具有 then 方法的对象，通常被称为thenable）。它的使用方法如下：
-```
+```js
 promise.then(onFulfilled, onRejected)
 ```
 
@@ -65,7 +65,7 @@ promise.then(onFulfilled, onRejected)
 * 引入Class(类)          ` class Foo {}`
 * 引入模块体系            ` export default func;`
 * 引入async函数[ES7]    
-```
+```js
 async function asyncPrint(value, ms) {
       await timeout(ms);
       console.log(value)

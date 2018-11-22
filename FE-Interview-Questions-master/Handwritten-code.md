@@ -312,7 +312,7 @@ function unique3(arr){
 unique3([1, 2, 3, 3, 2, 1]);
 ```
 
-**将url的查询参数解析成字典对象**
+** 将url的查询参数解析成字典对象 **
 
 
 ```JavaScript
@@ -356,28 +356,28 @@ var throttle = function(fn, delay, mustRunDelay){
 
 // 调用（两次间隔50ms内连续触发不执行，但每累计100ms至少执行一次
 window.onresize = throttle(myFunc, 50, 100);
-````
+```
 
 **用JS实现千位分隔符**
 
-```JavaScript
-function test1(num){
-  var str = (+ num) + '';
-  var len = str.length;
-  if(len <= 3) return str;
-  num = '';
-  while(len > 3){
-      len -= 3;
-      num = ',' + str.substr(len, 3) + num;
-  }
-  return str.substr(0, len) + num;
-}
+```js
+    function test1(num){
+    var str = (+ num) + '';
+    var len = str.length;
+    if(len <= 3) return str;
+    num = '';
+    while(len > 3){
+        len -= 3;
+        num = ',' + str.substr(len, 3) + num;
+    }
+    return str.substr(0, len) + num;
+    }
 
-function test2(num){
-  // ?= 正向匹配:匹配位置
-  // ?! 正向不匹配:排除位置
-  var str = (+num).toString();
-  var reg = /(?=(?!\b)(\d{3})+$)/g;
-  return str.replace(reg, ',');
-}
+    function test2(num){
+    // ?= 正向匹配:匹配位置
+    // ?! 正向不匹配:排除位置
+    var str = (+num).toString();
+    var reg = /(?=(?!\b)(\d{3})+$)/g;
+    return str.replace(reg, ',');
+    }
 ```

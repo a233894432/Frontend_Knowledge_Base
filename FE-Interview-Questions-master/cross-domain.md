@@ -2,7 +2,7 @@
 ---
 
 
-**JSONP：**
+** JSONP：**
 
 - 原理是：动态插入script标签，通过script标签引入一个js文件，这个js文件载入成功后会执行我们在url参数中指定的函数，并且会把我们需要的json数据作为参数传入
 - 由于同源策略的限制，XmlHttpRequest只允许请求当前源（域名、协议、端口）的资源，为了实现跨域请求，可以通过script标签实现跨域请求，然后在服务端输出JSON数据并执行回调函数，从而解决了跨域的数据请求
@@ -10,7 +10,7 @@
 
 - JSONP：json+padding（内填充），顾名思义，就是把JSON填充到一个盒子里
 
-```
+```js
 <script>
     function createJs(sUrl){
 
@@ -56,7 +56,7 @@
 
 - 如何解决跨域问题?
 
-  * document.domain + iframe：要求主域名相同 //只能跨子域
+  * document.domain + iframe：要求主域名相同  //只能跨子域
   * JSONP(JSON with Padding)：response: callback(data) //只支持 GET 请求
   * 跨域资源共享CORS(XHR2)：Access-Control-Allow //兼容性 IE10+
   * 跨文档消息传输(HTML5)：postMessage + onmessage  //兼容性 IE8+

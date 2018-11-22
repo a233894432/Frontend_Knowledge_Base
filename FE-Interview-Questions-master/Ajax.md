@@ -11,7 +11,7 @@
   - 5.获取异步调用返回的数据
   - 6.使用 JavaScript 和 DOM 实现局部刷新
 
-```
+```js
 var xhr = new XMLHttpRequest();
 xhr.open("POST", url, true);
 xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");

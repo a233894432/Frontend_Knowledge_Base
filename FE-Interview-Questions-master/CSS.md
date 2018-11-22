@@ -93,7 +93,7 @@
 
 **CSS3新增伪类有那些？**
 
-```
+```css
 p:first-of-type 选择属于其父元素的首个 <p> 元素的每个 <p> 元素。
 p:last-of-type  选择属于其父元素的最后 <p> 元素的每个 <p> 元素。
 p:only-of-type  选择属于其父元素唯一的 <p> 元素的每个 <p> 元素。
@@ -111,15 +111,16 @@ p:nth-child(2)  选择属于其父元素的第二个子元素的每个 <p> 元�
 
 - 给`div`设置一个宽度，然后添加`margin:0 auto`属性
 
-```
+```css
 div{
     width:200px;
     margin:0 auto;
  }
- ```
+```
+
 - 居中一个浮动元素
 
-```
+```css
 //确定容器的宽高 宽500 高 300 的层
 //设置层的外边距
 
@@ -135,7 +136,7 @@ div{
  
  - 让绝对定位的div居中
  
-```
+```css
   position: absolute;
   width: 1200px;
   background: none;
@@ -144,7 +145,7 @@ div{
   left: 0;
   bottom: 0;
   right: 0;
-  ```
+```
   
 **display有哪些值？说明他们的作用**
   
@@ -417,7 +418,7 @@ div{
 
 * 如果是单行文本, line-height 设置成和 height 值
 
-```
+```css
 .vertical {
       height: 100px;
       line-height: 100px;
@@ -425,7 +426,7 @@ div{
 ```
 * 已知高度的块级子元素，采用绝对定位和负边距
 
-```
+```css
 .container {
   position: relative;
 }
@@ -440,15 +441,15 @@ div{
  * 未知高度的块级父子元素居中，模拟表格布局
  * 缺点：IE67不兼容，父级 overflow：hidden 失效
  
-```
+
+```css
 .container {
       display: table;
     }
-    .content {
+.content {
       display: table-cell;
       vertical-align: middle;
-    }
-
+}
 ```
     
 * 新增 inline-block 兄弟元素，设置 vertical-align
@@ -707,7 +708,7 @@ if(screenWidth > 1800){
 - 伪元素 -- 在内容元素的前后插入额外的元素或样式，但是这些元素实际上并不在文档中生成。
 - 它们只在外部显示可见，但不会在文档的源代码中找到它们，因此，称为“伪”元素。例如：
 
-```
+```css
 p::before {content:"第一章：";}
 p::after {content:"Hot!";}
 p::first-line {background:red;}
