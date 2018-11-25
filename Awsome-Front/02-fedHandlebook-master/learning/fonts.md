@@ -9,4 +9,4 @@
 * [Web 字体排版](http://www.pluralsight.com/courses/typography-for-web-1790) [watch][$]
 * [@font-face 快速学习指南](http://www.html5rocks.com/en/tutorials/webfonts/quick/) [read]
 * [响应式排版](https://frontendmasters.com/courses/responsive-typography/) [watch][$]
-* [用最好的字体来美化网页](http://hellohappy.org/beautiful-web-type/) [read]
+* [用最好的字体来美化网页](https://beautifulwebtype.com) [read]
