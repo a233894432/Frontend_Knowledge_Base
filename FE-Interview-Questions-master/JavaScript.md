@@ -143,6 +143,7 @@
    var iPhone7 = new Mobile("iPhone7", 1000);
    iPhone7.sell();
 ```
+
 - Object.create 法 -- 用 Object.create() 生成实例对象
 - 缺点：不能实现私有属性和私有方法，实例对象之间也不能共享数据
 
@@ -167,7 +168,9 @@
 　　　 return new F();
 　　};
 　}
+
 ```
+
 - 极简主义法（消除 this 和 prototype） -- 调用 createNew() 得到实例对象
   - 优点：容易理解，结构清晰优雅，符合传统的"面向对象编程"的构造
    
